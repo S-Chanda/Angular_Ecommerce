@@ -1,0 +1,18 @@
+{
+  "admin":[
+
+  ],
+
+  "products":[
+    
+  ],
+  "users":[
+    {"name":"Ram",
+    "email":"abc@test.com",
+    "password":"abc123",
+    "id":1}
+
+    
+  ]
+  
+}

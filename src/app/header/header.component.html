@@ -1,0 +1,36 @@
+<nav class ="nav">
+    <h1><a routerLink="/">PROJECT</a></h1>
+    <!-- menuType is for userType -->
+    <div *ngIf="menuType==='default'" class="nav-search">
+        <!-- giving id #searchInput for search to access its value -->
+        <input type="text" 
+        #searchInput
+        (keyup)="searchProduct($event)" (blur)="hideSearch()" placeholder="Search Products" />
+        <button (click)="submitSearch(searchInput.value)">Search</button>
+        <ul class="suggested-result" *ngIf="searchResult">
+            <li *ngFor="let item of searchResult">
+                <!-- here mousedown is used instead of routerLink because when we use blur event, the mouse event doesn't work -->
+                <a (mousedown)="redirectToDetails(item.id)">{{item.name}}</a>
+            </li>
+        </ul>
+
+    </div>
+    
+    <div [ngSwitch]="menuType">
+        <ul *ngSwitchCase="'default'">
+            <li> <a routerLink = "admin">Admin</a></li>
+            <li> <a routerLink = "">Home</a></li>
+            <li> <a routerLink = "user-auth">Login/Sign Up</a></li>
+            <li> <a href = "#">Cart(0)</a></li>
+        </ul>
+
+        <!-- ul for Seller -->
+        <ul *ngSwitchCase="'admin'">
+            <li> <a routerLink = "admin-home">Products List</a></li>
+            <li> <a routerLink = "admin-add-product">Add Product</a></li>
+            <li> <a (click)="logout()">Logout</a></li>
+            <li > <a href = "#">{{adminName | titlecase}}</a></li>   
+        </ul>
+    </div>
+
+</nav>

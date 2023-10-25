@@ -1,0 +1,30 @@
+
+<div class = "admin">
+    <div *ngIf="!showLogin" class = "sign-up">
+        <h1 >Admin Sign-Up</h1>
+        <form #userSignUp="ngForm" (ngSubmit)="signUp(userSignUp.value)" class = "common-form">
+            <input class = "form-input" type = "text" ngModel name="name" placeholder = "Enter Name">
+            <input class = "form-input" type = "password" ngModel name="password" placeholder = "Enter Password">
+            <input class = "form-input"  type = "text" ngModel name="email" placeholder = "Enter Email">
+            <button class="form-button">Sign Up</button>
+            <a class="auth-toggle-flip" (click)="openLogin()">Already Have Account? Click to Login</a>
+        </form>
+    </div>
+
+
+
+
+    <!-- LogIN Area -->
+
+
+    <div *ngIf="showLogin" class = "login">
+        <h1 >Admin  Login</h1>
+        <p class="error-p">{{authError}}</p>
+        <form #userLogin="ngForm" (ngSubmit)="login(userLogin.value)" class = "common-form">
+            <input class = "form-input"  type = "text" ngModel name="email" placeholder = "Enter Email">
+            <input class = "form-input" type = "password" ngModel name="password" placeholder = "Enter Password">
+            <button class="form-button">Login</button>
+            <a class="auth-toggle-flip" (click)="openSignUp()">Don't Have Account? Click to Sign-Up</a>
+        </form>
+    </div>
+</div>

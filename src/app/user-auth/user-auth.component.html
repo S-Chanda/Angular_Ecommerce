@@ -1,0 +1,31 @@
+<div class="user-auth">
+    <h1>User Sign Up</h1>
+    <!-- userSignUp is name of form and the type is ngForm -->
+    <!-- ngModel is used to bind input fields to form -->
+    <form class="common-form" #userSignUp="ngForm" (ngSubmit)="signUp(userSignUp.value)">
+        <input type="text" 
+        class="form-input"
+        placeholder="Enter Username"
+        name="name"
+        ngModel
+        />
+
+        <input type="text" 
+        class="form-input"
+        placeholder="Enter Email"
+        name="email"
+        ngModel
+        />
+
+        <input type="password" 
+        class="form-input"
+        placeholder="Enter password"
+        name="password"
+        ngModel
+        />
+
+        <button class="form-button">Sign Up</button>
+
+    </form>
+
+</div>
